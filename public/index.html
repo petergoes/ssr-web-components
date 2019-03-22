@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SSR WC via Puppeteer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<x-hello>World</x-hello>
+	
+	<script>
+		class Hello extends HTMLElement {
+			connectedCallback() {
+				const shadowRoot = this.attachShadow({ mode: 'open' });
+				shadowRoot.innerHTML = '<span>Hello, <strong><slot></slot></strong>!</span>';
+			}
+		}
+		customElements.define('x-hello', Hello);
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "ssr-web-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "4.16.4",
+    "puppeteer": "1.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Peter Goes <petergoes@gmail.com>",
+  "license": "ISC"
+}
