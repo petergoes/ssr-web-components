@@ -5,23 +5,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>SSR WC via Puppeteer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="x-hello.js"></script>
+	<script src="x-list.js"></script>
+	<script src="x-parent.js"></script>
+	<script src="x-child.js"></script>
 </head>
 <body>
 	
-	<x-hello greeting="Hello" data-ssr>World</x-hello>
-	
+	<x-hello greeting="Hello">World</x-hello>
 	<br />
+	<x-hello>Peter</x-hello>
+	<br />
+	<x-parent></x-parent>
 
-	<x-hello greeting="Hi" data-ssr>Peter</x-hello>
-	
+	<x-list></x-list>
+
 	<script>
-		class Hello extends HTMLElement {
-			connectedCallback() {
-				const shadowRoot = this.attachShadow({ mode: 'open' });
-				shadowRoot.innerHTML = `<span>${this.getAttribute('greeting')}, <strong><slot></slot></strong>!</span>`;
-			}
-		}
-		customElements.define('x-hello', Hello);
+		document.querySelector('x-hello:nth-of-type(2)').greeting = 'Hi'
+		document.querySelector('x-list').users = [
+			{ name: 'John' },
+			{ name: 'Sara' },
+			{ name: 'Eva' },
+		]
 	</script>
 </body>
 </html>
