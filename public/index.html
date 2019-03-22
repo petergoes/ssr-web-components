@@ -8,13 +8,17 @@
 </head>
 <body>
 	
-	<x-hello>World</x-hello>
+	<x-hello greeting="Hello" data-ssr>World</x-hello>
+	
+	<br />
+
+	<x-hello greeting="Hi" data-ssr>Peter</x-hello>
 	
 	<script>
 		class Hello extends HTMLElement {
 			connectedCallback() {
 				const shadowRoot = this.attachShadow({ mode: 'open' });
-				shadowRoot.innerHTML = '<span>Hello, <strong><slot></slot></strong>!</span>';
+				shadowRoot.innerHTML = `<span>${this.getAttribute('greeting')}, <strong><slot></slot></strong>!</span>`;
 			}
 		}
 		customElements.define('x-hello', Hello);
