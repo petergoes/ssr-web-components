@@ -9,6 +9,7 @@
 	<script src="x-list.js"></script>
 	<script src="x-parent.js"></script>
 	<script src="x-child.js"></script>
+	<script src="x-multiple.js"></script>
 </head>
 <body>
 	
@@ -19,6 +20,13 @@
 	<x-parent></x-parent>
 
 	<x-list></x-list>
+
+	<x-multiple>
+		<p>This is some content</p>
+		<p slot="footer">This should go into the footer</p>
+		<p slot="header">This should go into the header</p>
+		<p slot="myslot">This should go into a slot that is not defined</p>
+	</x-multiple>
 
 	<script>
 		document.querySelector('x-hello:nth-of-type(2)').greeting = 'Hi'
